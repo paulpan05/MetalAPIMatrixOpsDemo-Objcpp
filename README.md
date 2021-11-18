@@ -1,6 +1,6 @@
 # Metal API Matrix Operations Demo: Objective-C++
 
-Application demonstrating the dot product of two matrices using the Metal API.
+Application demonstrating matrix using the Metal API.
 
 (Programming Language Used: Objective-C++)
 
