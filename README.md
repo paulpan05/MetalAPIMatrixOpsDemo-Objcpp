@@ -1,6 +1,6 @@
 # Metal API Matrix Operations Demo: Objective-C++
 
-Application demonstrating matrix using the Metal API.
+Application demonstrating matrix operations using the Metal API.
 
 (Programming Language Used: Objective-C++)
 
