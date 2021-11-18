@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/paulpan/GitRepos/MetalDemoApp/main.mm
+iostream
+-
+Foundation/Foundation.h
+-
+Metal/Metal.h
+-
+MetalPerformanceShaders/MetalPerformanceShaders.h
+-
+
