@@ -29,9 +29,9 @@ int main() {
 
     [blitCommandEncoder endEncoding];
     [oper encodeToCommandBuffer:commandBuffer inputMatrix:mpsMatrix inputVector:mpsVector resultVector:mpsResult];
+    [blitCommandEncoder synchronizeResource:resultBuffer];
     [commandBuffer commit];
     [commandBuffer waitUntilCompleted];
-    [blitCommandEncoder synchronizeResource:resultBuffer];
     std::cout << ((Float32 *)resultBuffer.contents)[1];
 
 
