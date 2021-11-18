@@ -21,8 +21,8 @@ int main() {
     id<MTLBuffer> matrixBuffer = [device newBufferWithLength:500 * 600 * sizeof(Float32) options:MTLResourceStorageModeManaged];
     id<MTLBuffer> vectorBuffer = [device newBufferWithLength:600 * sizeof(Float32) options:MTLResourceStorageModeManaged];
     id<MTLBuffer> resultBuffer = [device newBufferWithLength:500 * sizeof(Float32) options:MTLResourceStorageModeManaged];
-    ((Float32*) matrixBuffer.contents)[0] = 2;
-    ((Float32*) vectorBuffer.contents)[0] = 4;
+    ((Float32*) matrixBuffer.contents)[601] = 2;
+    ((Float32*) vectorBuffer.contents)[1] = 4;
     MPSMatrix* mpsMatrix = [[MPSMatrix alloc] initWithBuffer:matrixBuffer descriptor:matrixDescriptor];
     MPSVector* mpsVector = [[MPSVector alloc] initWithBuffer:vectorBuffer descriptor:vectorDescriptor];
     MPSVector* mpsResult = [[MPSVector alloc] initWithBuffer:resultBuffer descriptor:resultDescriptor];
@@ -32,7 +32,7 @@ int main() {
     [commandBuffer commit];
     [commandBuffer waitUntilCompleted];
     [blitCommandEncoder synchronizeResource:resultBuffer];
-    std::cout << ((Float32 *)resultBuffer.contents)[0];
+    std::cout << ((Float32 *)resultBuffer.contents)[1];
 
 
 
