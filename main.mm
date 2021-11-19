@@ -28,10 +28,12 @@ int main() {
     MPSVector* mpsResult = [[MPSVector alloc] initWithBuffer:resultBuffer descriptor:resultDescriptor];
 
     [blitCommandEncoder endEncoding];
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     [oper encodeToCommandBuffer:commandBuffer inputMatrix:mpsMatrix inputVector:mpsVector resultVector:mpsResult];
     [blitCommandEncoder synchronizeResource:resultBuffer];
     [commandBuffer commit];
     [commandBuffer waitUntilCompleted];
+    std::cout << CFAbsoluteTimeGetCurrent() - startTime << std::endl;
     std::cout << ((Float32 *)resultBuffer.contents)[1];
 
 
